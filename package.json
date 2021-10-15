@@ -1,0 +1,24 @@
+{
+  "name": "xlsx-preview",
+  "version": "1.0.0",
+  "description": "Preview the .xlsx in the browser, convert to HTML with styles.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nslyc/xlsx-preview.git"
+  },
+  "keywords": [
+    "xlsx",
+    "html",
+    "xlsx-preview"
+  ],
+  "author": "nslyc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nslyc/xlsx-preview/issues"
+  },
+  "homepage": "https://github.com/nslyc/xlsx-preview#readme"
+}
