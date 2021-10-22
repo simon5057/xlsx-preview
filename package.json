@@ -4,8 +4,14 @@
   "description": "Preview the .xlsx in the browser, convert to HTML with styles.",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run webpack",
+    "webpack": "rimraf ./dist && webpack --config ./webpack.config.ts",
+    "lint": "tslint --project ."
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nslyc/xlsx-preview.git"
@@ -20,5 +26,19 @@
   "bugs": {
     "url": "https://github.com/nslyc/xlsx-preview/issues"
   },
-  "homepage": "https://github.com/nslyc/xlsx-preview#readme"
+  "homepage": "https://github.com/nslyc/xlsx-preview#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.2",
+    "@types/webpack": "^5.28.0",
+    "rimraf": "^3.0.2",
+    "ts-lint": "^4.5.1",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.3.0",
+    "typescript": "^4.4.4",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "exceljs": "^4.3.0"
+  }
 }
