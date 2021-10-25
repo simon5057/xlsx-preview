@@ -2,7 +2,7 @@
   "name": "xlsx-preview",
   "version": "1.0.0",
   "description": "Preview the .xlsx in the browser, convert to HTML with styles.",
-  "main": "src/index.ts",
+  "main": "dist/xlsxPreview.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run webpack",

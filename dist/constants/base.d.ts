@@ -1,0 +1,17 @@
+export declare const UUID: string;
+export declare const EXCEL_SHEETS_CLS: string;
+export declare const TABLE_CLS: string;
+export declare const TBODY_CLS: string;
+export declare const SHEET_CLS: string;
+export declare const SHEET_BTN_CLS: string;
+export declare const TOGGLE_SHEET_BTN_X: string;
+export declare const CELL_HEIGHT = 24;
+export declare const CELL_WIDTH = 72;
+export declare const TABLE_BORDER_COLOR = "#f0f0f0";
+export declare const ORDER_CELL_BACKGROUND = "#b6d9fb";
+export declare const FIRST_ORDER_ROW_HEIGHT = 24;
+export declare const FIRST_ORDER_COL_WIDTH = 32;
+export declare let MINIMUM_NUMBER_ROWS: number;
+export declare let MINIMUM_NUMBER_COLS: number;
+export declare function setMinimumNumberRows(count: number): void;
+export declare function setMinimumNumberCols(count: number): void;

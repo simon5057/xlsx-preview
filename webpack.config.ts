@@ -15,15 +15,14 @@ const baseConf = {
       },
     ],
   },
-  plugins: [
-    new ProvidePlugin({
-      process: "process/browser",
-    }),
-  ],
-  externals: {
-    exceljs: 'ExcelJS'
+  resolve: {
+    extensions: [".ts", ".js"],
+    modules: [path.resolve("./src"), "node_modules"],
   },
-  devtool: "source-map"
+  externals: {
+    exceljs: "ExcelJS",
+  },
+  devtool: "source-map",
 };
 
 module.exports = [
@@ -48,9 +47,19 @@ module.exports = [
     ...baseConf,
     output: {
       path: path.resolve("dist"),
-      filename: "xlsxPreview.common.js",
+      filename: "xlsxPreview.cjs.js",
       libraryTarget: "commonjs",
       library: { type: "commonjs" },
     },
+  },
+  {
+    ...baseConf,
+    output: {
+      path: path.resolve("dist"),
+      filename: "xlsxPreview.demo.js",
+      library: "xlsxPreview",
+    },
+    externals: undefined,
+    devtool: undefined,
   },
 ];
