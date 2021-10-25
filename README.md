@@ -1,37 +1,62 @@
-## Welcome to GitHub Pages
+## XlsxPreview
 
-You can use the [editor on GitHub](https://github.com/nslyc/xlsx-preview/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Preview the .xlsx in the browser, convert to HTML with styles.
+The dependencies of this package is [exceljs](https://github.com/exceljs/exceljs), it build the pretty preview by exceljs.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Demo
 
-### Markdown
+Jump to the [demo page](./demo.html)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Installation
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+  npm install xlsx-preview
+```
+or
+```
+  yarn xlsx-preview
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Importing
 
-### Jekyll Themes
+#### CommonJS
+``` js
+  const xlsxPreview = require('xlsx-preview');
+```
+#### ESModule
+``` js
+  import xlsxPreview from 'xlsx-preview';
+```
+#### Browserify
+Before import xlsxPreview.js on browser, you need import excel.js first.
+``` html
+  <script src="exceljs.js"></script>
+  <script src="xlsxPreview.js"></script>
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nslyc/xlsx-preview/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Usage
 
-### Support or Contact
+``` js
+  // ...
+  const result = await xlsxPreview.xlsx2Html(data, options);
+```
+See [data](#data)
+See [options](#options)
+#### data
+The `data` can be one of the types, ArrayBuffer, Blob, or File.
+#### options
+The `options` is optional.
+``` ts
+  export interface XlsxOptions {
+    output?: "string" | "arrayBuffer";
+    separateSheets: boolean;
+    minimumRows: number;
+    minimumCols: number;
+  }
+```
+- `options.output`: default `"string"`, set the output format, string or ArrayBuffer.
+- `separateSheets`: default `false`, whether the worksheets needs to be separated.
+  - If `separateSheets: true`, the `result` will be an Array.
+- `minimumRows`: default `20`, Regardless of whether the worksheet has enough rows, the minimum number of rows generated.
+-  `minimumCols`: default `16`, Regardless of whether the worksheet has enough cols, the minimum number of cols generated.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
