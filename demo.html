@@ -27,12 +27,11 @@
       Choose .xlsx file to preview.
     </p>
   </div>
-  <script src="/dist/xlsxPreview.demo.js"></script>
+  <script src="./dist/xlsxPreview.demo.js"></script>
   <script>
     const item = document.querySelector('[name="xlsx"]');
     item.addEventListener('change', async e => {
       const files = e.target.files;
-      console.log(files);
       const buffer = await files[0].arrayBuffer()
       const result = await xlsxPreview.xlsx2Html(buffer, {
         output: 'arrayBuffer',
