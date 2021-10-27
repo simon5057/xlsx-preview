@@ -1,6 +1,6 @@
 import {
-  SHEET_BTN_CLS,
-  TOGGLE_SHEET_BTN_X,
+  SHEET_TOGGLE_BTN_CLS,
+  SHEET_TOGGLE_BTN_X,
   TABLE_BORDER_COLOR,
   CELL_HEIGHT,
   CELL_WIDTH,
@@ -10,6 +10,9 @@ import {
   UUID,
   EXCEL_SHEETS_CLS,
   ORDER_CELL_BACKGROUND,
+  SHEET_TOGGLE_BAR_CLS,
+  SHEET_LOCATE_BTN_X,
+  SHEET_LOCATE_BTN_CLS,
 } from "../constants/base";
 
 export function genBaseCSS(): string {
@@ -28,11 +31,16 @@ export function genBaseCSS(): string {
 export function genToggleSheetCSS(): string {
   return `
     <style>
-      .${EXCEL_SHEETS_CLS} { position: relative; padding-bottom: 26px; }
-      .${SHEET_CLS} { display: none; width: 100%; height: 100%; }
+      body { margin-bottom: 0; }
+      .${EXCEL_SHEETS_CLS} { position: relative; }
+      .${SHEET_CLS} { display: none; width: 100%; height: calc(100% - 30px); }
       .${SHEET_CLS}.active { display: block; }
-      .${TOGGLE_SHEET_BTN_X} { position: fixed; left: 0px; bottom: 0px; display: flex; }
-      .${SHEET_BTN_CLS} { height: 30px; padding: 0 15px; border: none; box-shadow: 1px 0 2px #ccc; }
-      .${SHEET_BTN_CLS}.active { border-bottom: 2px solid; background: #fff; }
+      .${SHEET_TOGGLE_BAR_CLS} { position: fixed; left: 0px; bottom: 0px; width: 100%; display: flex; }
+      .${SHEET_LOCATE_BTN_X} { display: flex; algin-items: center; margin-right: 1px; }
+      .${SHEET_LOCATE_BTN_CLS} { height: 30px; border: none; }
+      .${SHEET_LOCATE_BTN_CLS}:active { background: #fff; }
+      .${SHEET_TOGGLE_BTN_X} { position: relative; flex: 1; overflow: hidden; white-space: nowrap; }
+      .${SHEET_TOGGLE_BTN_CLS} { height: 30px; padding: 0 15px; border: none; box-shadow: 1px 0 2px #ccc; }
+      .${SHEET_TOGGLE_BTN_CLS}.active { border-bottom: 2px solid; background: #fff; }
     </style>`;
 }

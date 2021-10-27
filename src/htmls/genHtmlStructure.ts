@@ -1,14 +1,18 @@
 import { Worksheet } from "exceljs";
 import {
-  SHEET_BTN_CLS,
-  TOGGLE_SHEET_BTN_X,
+  SHEET_TOGGLE_BTN_CLS,
+  SHEET_TOGGLE_BTN_X,
   SHEET_CLS,
   TABLE_CLS,
   TBODY_CLS,
   UUID,
   EXCEL_SHEETS_CLS,
+  SHEET_LOCATE_BTN_X,
+  SHEET_LOCATE_BTN_CLS,
+  SHEET_TOGGLE_BAR_CLS,
 } from "../constants/base";
 import { genToggleSheetCSS } from "../CSSStyles/base";
+import genScripts from "./genScripts";
 
 const EMPTY_ROW_CACHE: { [key: number]: string } = {};
 export function genEmptyRow(columns: number, orderCell: string): string {
@@ -38,32 +42,16 @@ export function sheetsInAll(sheets: string[], workSheet: Worksheet[]) {
     const url = URL.createObjectURL(new Blob([sheets[i]], { type: MIME_TYPE }));
     const active = i === 0 ? " active" : "";
     html += `<object class="${SHEET_CLS}${active}" data-index="${i}" type="${MIME_TYPE}" data="${url}"></object>`;
-    buttons += `<button class="${SHEET_BTN_CLS}${active}" data-index="${i}">${workSheet[i].name}</button>`;
+    buttons += `<button class="${SHEET_TOGGLE_BTN_CLS}${active}" data-index="${i}">${workSheet[i].name}</button>`;
   }
-  html += `<div class="${TOGGLE_SHEET_BTN_X}">${buttons}</div>`;
+  const locateBtns = `<div class="${SHEET_LOCATE_BTN_X}">
+    <button class="${SHEET_LOCATE_BTN_CLS}" id="first-${UUID}">⇤</button>
+    <button class="${SHEET_LOCATE_BTN_CLS}" id="prev-${UUID}">←</button>
+    <button class="${SHEET_LOCATE_BTN_CLS}" id="next-${UUID}">→</button>
+    <button class="${SHEET_LOCATE_BTN_CLS}" id="last-${UUID}">⇥</button>
+  </div>`;
+  const toggleBtns = `<div class="${SHEET_TOGGLE_BTN_X}">${buttons}</div>`;
+  html += `<div class="${SHEET_TOGGLE_BAR_CLS}">${locateBtns}${toggleBtns}</div>`;
   html += `${genToggleSheetCSS()}${genScripts()}`;
   return `<div class="${EXCEL_SHEETS_CLS}">${html}</div>`;
-}
-
-function genScripts() {
-  return `<script>
-    window.onload = function() {
-      const buttonBox = document.querySelector('.${TOGGLE_SHEET_BTN_X}');
-      buttonBox.addEventListener('click', e => {
-        const target = e.target;
-        if (target.classList.contains('${SHEET_BTN_CLS}')) {
-          const sheets = document.querySelectorAll('.${SHEET_CLS}');
-          for (let node of sheets) {
-            node.classList.remove('active');
-          }
-          for (let btn of buttonBox.children) {
-            btn.classList.remove('active');
-          }
-          const index = target.dataset.index;
-          document.querySelector('.${SHEET_CLS}[data-index="'+index+'"]').classList.add('active');
-          e.target.classList.add('active');
-        }
-      })
-    }
-  </script>`;
 }

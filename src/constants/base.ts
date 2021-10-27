@@ -7,8 +7,11 @@ export const EXCEL_SHEETS_CLS = `excel-sheets-${UUID}`;
 export const TABLE_CLS = `table-${UUID}`;
 export const TBODY_CLS = `tbody-${UUID}`;
 export const SHEET_CLS = `sheet-${UUID}`;
-export const SHEET_BTN_CLS = `sheet-btn-${UUID}`;
-export const TOGGLE_SHEET_BTN_X = `btns-x-${UUID}`;
+export const SHEET_TOGGLE_BAR_CLS = `sheet-toggle-bar-${UUID}`;
+export const SHEET_LOCATE_BTN_X = `locate-btns-x-${UUID}`;
+export const SHEET_LOCATE_BTN_CLS = `l-btn-${UUID}`;
+export const SHEET_TOGGLE_BTN_X = `toggle-btns-x-${UUID}`;
+export const SHEET_TOGGLE_BTN_CLS = `t-btn-${UUID}`;
 
 export const CELL_HEIGHT = 24;
 export const CELL_WIDTH = 72;
