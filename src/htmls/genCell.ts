@@ -6,15 +6,19 @@ import {
 } from "exceljs";
 import { genAlignment, genFill, genFont } from "../CSSStyles/inline";
 import { CellSpan } from "../types/table";
-import { genDate, genHyperLink, genRichText } from "./genText";
+import { genDate, genForMulaValue, genHyperLink, genRichText } from "./genText";
 
 function genCellTextByType(cell: Cell): string {
   const { type, value } = cell;
   switch (type) {
+    case ValueType.Null:
+      return '';
     case ValueType.Hyperlink:
       return genHyperLink(value as CellHyperlinkValue);
     case ValueType.RichText:
       return genRichText(value as CellRichTextValue);
+    case ValueType.Formula:
+      return genForMulaValue(cell);
     case ValueType.Date:
       return genDate(value as Date);
     default:
