@@ -47,19 +47,13 @@ module.exports = [
     ...baseConf,
     output: {
       path: path.resolve("dist"),
-      filename: "xlsxPreview.cjs.js",
-      libraryTarget: "commonjs",
-      library: { type: "commonjs" },
-    },
-  },
-  {
-    ...baseConf,
-    output: {
-      path: path.resolve("dist"),
       filename: "xlsxPreview.demo.js",
       library: "xlsxPreview",
     },
     externals: undefined,
     devtool: undefined,
+    cache: {
+      type: "memory",
+    },
   },
 ];
