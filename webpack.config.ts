@@ -55,5 +55,8 @@ module.exports = [
     cache: {
       type: "memory",
     },
+    infrastructureLogging: {
+      level: 'log',
+    },
   },
 ];
