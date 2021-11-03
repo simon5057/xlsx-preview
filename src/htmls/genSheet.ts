@@ -112,8 +112,13 @@ export default async function genSheet(workSheet: Worksheet) {
   );
   positionMap.cols = [FIRST_ORDER_COL_WIDTH, ...colsSpan];
 
+  const hideGridLines = workSheet.views.some((view) => !view.showGridLines);
+  const gridLineStyle = hideGridLines
+    ? `.${TBODY_CLS}.${TBODY_CLS} td:not(.order) { border: none; }`
+    : "";
+
   let result = wrapTable(orderCol + resultRows);
-  const tableStyle = `.${TABLE_CLS} { width: ${sheetWidth}px; }`;
+  const tableStyle = `.${TABLE_CLS} { width: ${sheetWidth}px; } ${gridLineStyle}`;
   const imgHtml = await genImageHtml(workSheet, positionMap);
   result += imgHtml;
   result += `<style>${tableStyle}${colStyles}</style>`;
