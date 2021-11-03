@@ -26,7 +26,7 @@ export function genForMulaValue(cell: Cell): string {
   if (cell.numFmt === "0.00%") {
     return ((cell.result as number) * 100).toFixed(2) + "%";
   } else {
-    return cell.result as string;
+    return cell.result as string || "";
   }
 }
 
