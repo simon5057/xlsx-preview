@@ -2,6 +2,7 @@
 
 Preview the .xlsx in the browser, convert to HTML with styles.
 The dependencies of this package is [exceljs](https://github.com/exceljs/exceljs), it build the pretty preview by exceljs.
+And it can run in a Worker.
 
 ### Demo
 
