@@ -20,12 +20,14 @@
 </head>
 
 <body>
-  <input type="file" accept=".xlsx" name="xlsx">
+  <input id="choose-file" type="file" accept=".xlsx" name="xlsx">
   <h3>Result:</h3>
   <div id="result">
-    <p style="text-align:center; line-height: 80px;">
-      Choose .xlsx file to preview.
-    </p>
+    <label for="choose-file">
+      <p style="text-align:center; line-height: 80px;">
+        Choose .xlsx file to preview.
+      </p>
+    </label>
   </div>
   <script src="./dist/xlsxPreview.demo.js"></script>
   <script>
