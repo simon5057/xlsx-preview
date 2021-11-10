@@ -15,7 +15,7 @@ Jump to the [demo page](./demo.html)
 ```
 or
 ```
-  yarn xlsx-preview
+  yarn add xlsx-preview
 ```
 
 ### Importing
