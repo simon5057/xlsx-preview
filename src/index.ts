@@ -47,3 +47,7 @@ function toBuffer(data: string) {
   const blob = new Blob([data], { type: "text/html" });
   return blob.arrayBuffer();
 }
+
+export default {
+  xlsx2Html
+}
