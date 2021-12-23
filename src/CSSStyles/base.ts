@@ -21,7 +21,7 @@ export function genBaseCSS(): string {
       .embed-body-${UUID} { margin: 0; padding: 0; }
       .${TABLE_CLS} { border-collapse: collapse; table-layout: fixed; }
       .${TBODY_CLS} { border-right: 1px solid ${TABLE_BORDER_COLOR}; border-bottom: 1px solid ${TABLE_BORDER_COLOR}; }
-      .${TBODY_CLS} td { border-left: 1px solid ${TABLE_BORDER_COLOR}; border-top: 1px solid ${TABLE_BORDER_COLOR}; width: ${CELL_WIDTH}px; height: ${CELL_HEIGHT}px; }
+      .${TBODY_CLS} td { border-left: 1px solid ${TABLE_BORDER_COLOR}; border-top: 1px solid ${TABLE_BORDER_COLOR}; width: ${CELL_WIDTH}px; height: ${CELL_HEIGHT}px; text-overflow: ellipsis; overflow: hidden; }
       .${TBODY_CLS} td.order { color: #333; text-align: center; background: ${ORDER_CELL_BACKGROUND}; }
       .${TBODY_CLS} td.order-row { width: 32px; }
     </style>`;
