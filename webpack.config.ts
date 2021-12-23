@@ -19,15 +19,15 @@ const baseConf = {
     extensions: [".ts", ".js"],
     modules: [path.resolve("./src"), "node_modules"],
   },
-  externals: {
-    exceljs: "ExcelJS",
-  },
   devtool: "source-map",
 };
 
 module.exports = [
   {
     ...baseConf,
+    externals: {
+      exceljs: "exceljs",
+    },
     output: {
       path: path.resolve("dist"),
       filename: "xlsxPreview.umd.js",
@@ -37,6 +37,9 @@ module.exports = [
   },
   {
     ...baseConf,
+    externals: {
+      exceljs: "ExcelJS",
+    },
     output: {
       path: path.resolve("dist"),
       filename: "xlsxPreview.min.js",
@@ -50,13 +53,12 @@ module.exports = [
       filename: "xlsxPreview.demo.js",
       library: "xlsxPreview",
     },
-    externals: undefined,
     devtool: undefined,
     cache: {
       type: "memory",
     },
     infrastructureLogging: {
-      level: 'log',
+      level: "log",
     },
   },
 ];
