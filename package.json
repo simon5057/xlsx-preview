@@ -1,6 +1,6 @@
 {
   "name": "xlsx-preview",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Preview the .xlsx in the browser, convert to HTML with styles.",
   "main": "dist/xlsxPreview.umd.js",
   "scripts": {
