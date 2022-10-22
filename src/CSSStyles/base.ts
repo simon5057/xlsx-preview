@@ -32,7 +32,7 @@ export function genToggleSheetCSS(): string {
   return `
     <style>
       body { margin-bottom: 0; }
-      .${EXCEL_SHEETS_CLS} { position: relative; }
+      .${EXCEL_SHEETS_CLS} { position: relative; height: 100%; }
       .${SHEET_CLS} { display: none; width: 100%; height: calc(100% - 30px); }
       .${SHEET_CLS}.active { display: block; }
       .${SHEET_TOGGLE_BAR_CLS} { position: fixed; left: 0px; bottom: 0px; width: 100%; display: flex; }
