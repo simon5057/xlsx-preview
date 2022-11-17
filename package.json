@@ -39,6 +39,7 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "exceljs": "^4.3.0"
+    "exceljs": "^4.3.0",
+    "readable-stream": "^4.2.0"
   }
 }

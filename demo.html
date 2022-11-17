@@ -20,12 +20,12 @@
 </head>
 
 <body>
-  <input id="choose-file" type="file" accept=".xlsx" name="xlsx">
+  <input id="choose-file" type="file" accept=".xlsx,.csv" name="xlsx">
   <h3>Result:</h3>
   <div id="result">
     <label for="choose-file">
       <p style="text-align:center; line-height: 80px;">
-        Choose .xlsx file to preview.
+        Choose .xlsx / .csv file to preview.
       </p>
     </label>
   </div>
@@ -37,6 +37,7 @@
       const buffer = await files[0].arrayBuffer()
       const result = await xlsxPreview.xlsx2Html(buffer, {
         output: 'arrayBuffer',
+        format: files[0].type == "text/csv" ? 'csv' : 'xlsx',
         minimumRows: 50,
         minimumCols: 30,
       });
