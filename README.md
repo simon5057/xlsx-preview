@@ -50,12 +50,14 @@ The `options` is optional.
 ``` ts
   export interface XlsxOptions {
     output?: "string" | "arrayBuffer";
+    format?: "xlsx" | "csv";
     separateSheets: boolean;
     minimumRows: number;
     minimumCols: number;
   }
 ```
 - `options.output`: default `"string"`, set the output format, string or ArrayBuffer.
+- `options.format`: default `"xlsx"`, set the file format, xlsx or csv.
 - `separateSheets`: default `false`, whether the worksheets needs to be separated.
   - If `separateSheets: true`, the `result` will be an Array.
 - `minimumRows`: default `20`, Regardless of whether the worksheet has enough rows, the minimum number of rows generated.

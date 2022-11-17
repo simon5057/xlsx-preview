@@ -20,7 +20,11 @@ export async function xlsx2Html(data: XlsxData, options?: XlsxOptions) {
     throw "xlsx2Html(data, options): The parameter data can only be passed ArrayBuffer, Blob or File type";
   }
   const workbook = new Workbook();
-  await workbook.xlsx.load(buffer);
+  if (options?.format == "csv") {
+    await workbook.csv.load(buffer);
+  } else {
+    await workbook.xlsx.load(buffer);
+  }
   const sheetsLen = workbook.worksheets.length;
   const sheets: string[] = [];
   for (let idx = 0; idx < sheetsLen; idx++) {
