@@ -1,4 +1,5 @@
 import { Workbook } from "exceljs";
+import { Stream } from "stream";
 import { setMinimumNumberCols, setMinimumNumberRows } from "./constants/base";
 import { sheetsInAll } from "./htmls/genHtmlStructure";
 import genSheet from "./htmls/genSheet";
@@ -21,7 +22,10 @@ export async function xlsx2Html(data: XlsxData, options?: XlsxOptions) {
   }
   const workbook = new Workbook();
   if (options?.format == "csv") {
-    await workbook.csv.load(buffer);
+    let stream = new Stream.Duplex();
+    stream.push(buffer);
+    stream.push(null);
+    await workbook.csv.read(stream);
   } else {
     await workbook.xlsx.load(buffer);
   }
