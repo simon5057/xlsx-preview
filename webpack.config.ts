@@ -27,6 +27,8 @@ module.exports = [
     ...baseConf,
     externals: {
       exceljs: "exceljs",
+      "readable-stream": "readable-stream",
+      buffer: "buffer",
     },
     output: {
       path: path.resolve("dist"),
@@ -39,6 +41,8 @@ module.exports = [
     ...baseConf,
     externals: {
       exceljs: "ExcelJS",
+      "readable-stream": "readable-stream",
+      buffer: "buffer",
     },
     output: {
       path: path.resolve("dist"),
