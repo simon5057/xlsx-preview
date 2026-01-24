@@ -33,6 +33,7 @@ module.exports = [
       filename: "xlsxPreview.umd.js",
       libraryTarget: "umd",
       library: "xlsxPreview",
+      globalObject: "globalThis",
     },
   },
   {
