@@ -5,7 +5,7 @@ import {
   SHEET_TOGGLE_BTN_CLS,
   SHEET_TOGGLE_BTN_X,
   UUID,
-} from "constants/base";
+} from "../constants/base";
 
 const toggleBtnEventBind = `
 function toggleBtnEventBind() {
